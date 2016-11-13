@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -21,15 +20,17 @@ import java.io.InputStream;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public Bitmap mIcon11;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        new DownloadImageTask((ImageView) findViewById(R.id.IMAGEID)).execute("http://10.67.229.19:3000/week.png");
+        ZoomableImageView touch = (ZoomableImageView)findViewById(R.id.IMAGEID);
+        touch.setImageBitmap(mIcon11);
 
-        new DownloadImageTask((ImageView) findViewById(R.id.ivProfileBg)).execute("http://10.67.229.19:3000/week.png");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         protected void onPostExecute(Bitmap result) {
+
             bmImage.setImageBitmap(result);
         }
     }

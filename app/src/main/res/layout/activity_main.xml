@@ -22,9 +22,9 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
-    <ImageView
-        android:id="@+id/ivProfileBg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <vivekvaidya.com.staysafestayclean.ZoomableImageView
+        android:id="@+id/IMAGEID"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </android.support.v4.widget.DrawerLayout>
