@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -32,17 +33,32 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         new DownloadImageTask((ImageView) findViewById(R.id.IMAGEID)).execute("http://10.67.229.19:3000/week.png");
-        ZoomableImageView touch = (ZoomableImageView)findViewById(R.id.IMAGEID);
+        final ZoomableImageView touch = (ZoomableImageView)findViewById(R.id.IMAGEID);
         touch.setImageBitmap(mIcon11);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "sup", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                touch.setOnTouchListener(new View.OnTouchListener() {
+
+                    public boolean onTouch(View view, MotionEvent event) {
+                        int[] viewCoords = new int[2];
+                        view.getLocationOnScreen(viewCoords);
+                        int touchX = (int) event.getX();
+                        int touchY = (int) event.getY();
+                        int imageX = touchX - viewCoords[0]; // viewCoords[0] is the X coordinate
+                        int imageY = touchY - viewCoords[1];
+                        Log.d("X & Y", imageX + " " + imageY);// viewCoords[1] is the y coordinate
+                        return true;
+                    }
+                });
             }
         });
 
@@ -54,6 +70,7 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;

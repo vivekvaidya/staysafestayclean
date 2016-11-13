@@ -10,7 +10,7 @@
 
     <vivekvaidya.com.staysafestayclean.ZoomableImageView
         android:id="@+id/IMAGEID"
-        android:layout_width="902dp"
-        android:layout_height="1400dp"
-        />
+        android:layout_width="1043dp"
+        android:layout_height="677dp"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>
