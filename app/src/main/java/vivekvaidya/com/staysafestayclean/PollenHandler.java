@@ -25,7 +25,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class MainActivity extends AppCompatActivity
+public class PollenHandler extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public Bitmap mIcon11;
@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity
                 touch.setOnTouchListener(new View.OnTouchListener() {
 
                     public boolean onTouch(View view, MotionEvent event) {
-                        Intent myIntent = new Intent(MainActivity.this, ScrollingActivity.class);
-                        MainActivity.this.startActivity(myIntent);
+                        Intent myIntent = new Intent(PollenHandler.this, ScrollingActivity.class);
+                        PollenHandler.this.startActivity(myIntent);
                         int[] viewCoords = new int[2];
                         view.getLocationOnScreen(viewCoords);
                         int touchX = (int) event.getX();
@@ -161,10 +161,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            drawer.closeDrawer(GravityCompat.START);
+            Intent myIntent = new Intent(PollenHandler.this, MainActivity.class);
+            PollenHandler.this.startActivity(myIntent);
         } else if (id == R.id.nav_gallery) {
-            Intent myIntent = new Intent(MainActivity.this, PollenHandler.class);
-            MainActivity.this.startActivity(myIntent);
+            drawer.closeDrawer(GravityCompat.START);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
