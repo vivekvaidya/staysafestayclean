@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "sup", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Snackbar.make(view, "Now, tap on a region that you want to explore", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 touch.setOnTouchListener(new View.OnTouchListener() {
 
                     public boolean onTouch(View view, MotionEvent event) {
@@ -166,9 +166,11 @@ public class MainActivity extends AppCompatActivity
             Intent myIntent = new Intent(MainActivity.this, PollenHandler.class);
             MainActivity.this.startActivity(myIntent);
         } else if (id == R.id.nav_slideshow) {
-
+            Intent myIntent = new Intent(MainActivity.this, ScrollingActivity.class);
+            MainActivity.this.startActivity(myIntent);
         } else if (id == R.id.nav_manage) {
-
+            Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
+            MainActivity.this.startActivity(myIntent);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

@@ -166,8 +166,11 @@ public class PollenHandler extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             drawer.closeDrawer(GravityCompat.START);
         } else if (id == R.id.nav_slideshow) {
-
+            Intent myIntent = new Intent(PollenHandler.this, MainActivity.class);
+            PollenHandler.this.startActivity(myIntent);
         } else if (id == R.id.nav_manage) {
+            Intent myIntent = new Intent(PollenHandler.this, LoginActivity.class);
+            PollenHandler.this.startActivity(myIntent);
 
         } else if (id == R.id.nav_share) {
 
