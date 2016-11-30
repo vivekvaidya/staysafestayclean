@@ -1,2 +1,2 @@
 # staysafestayclean
-This is our project for VandyHacks 3. This was my first attempt at building a full fledged Android app!
+An Android app that plots heat maps of cities across the US representing frequency of occurence of diseases and alerts you when in proximity of a susceptible trigger. 
